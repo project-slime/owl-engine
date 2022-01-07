@@ -1,0 +1,52 @@
+app:
+  mode: "dev"       # eg: dev, test, prod
+  bind: "0.0.0.0"
+  port: 9530
+  secret: "cabilkdaj5hciphmk1a93a3ir3"
+  enableProxy: false
+  proxy: ""
+mysql:
+  host: ""                    # 数据库地址
+  port: 3306
+  username: ""                # 数据库用户名
+  password: ""                # 数据库密码
+  dbname: ""                  # 数据库名
+  maxIdleConnections: 50
+  maxOpenConnections: 50
+  maxConnectionLifeTime: 30
+influxdb:
+  address: ""
+  username: ""
+  password: "!"
+  database: ""
+  retentionPolicy: "30d"
+  timeout: 15
+  metisUrl: ""
+redis:
+  mode: "alone"             # 支持 alone(单节点)|sentinel(哨兵)|cluster(集群)
+  address: ""               # 如果是集群模式, 其地址以 ',' 作分隔
+  db: 0                     # redis 的DB 默认为 0, 范围: 0 ~ 16
+  password: ""              # 认证密码
+  maxActive: 0              # 最大连接数，默认0无限制
+  maxIdle: 0                # 最多保持空闲连接数，默认2*runtime.GOMAXPROCS(0)
+  wait: false               # 连接耗尽时是否等待，默认false
+  idleTimeout: 0            # 空闲连接超时时间，默认0不超时
+  maxConnLifetime: 0        # 连接的生命周期，默认0不失效
+log:
+  dir: "./logs"
+  name: "owl-engine.log"
+  level: "info"
+  format: "json"            # 日志输出格式, eg: common, json
+  addCaller: true
+  callerSkip: 2
+  maxSize: 128              # 单位: MB
+  maxAge: 7                 # 单位: 天
+  maxBackup: 7              # 单位: 天
+  interval: 24              # 单位: 小时
+  async: true               # 日志是否异步刷盘
+  queue: true               # 为防止丢消息和提高性能, 提供队列进行日志缓存, 再按 queueSleep 定义的频率进行刷盘
+  queueSleep: 100           # 单位: 毫秒
+  debug: false
+  compress: true
+event:
+  hooks:                    # 对于多条 hook, 请写多行

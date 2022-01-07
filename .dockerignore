@@ -1,0 +1,7 @@
+.idea
+logs
+docs
+.gitignore
+owl-engine-application.json
+*.md
+!README.md

@@ -1,0 +1,9 @@
+failure-threshold: info
+warning:
+  - DL3042
+  - DL3033
+info:
+  - DL3032
+ignored:
+  - DL4000
+  - SC2039
